@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Footwear List</h1>
+
+{% for shoe in shoes %}
+  <div class="card">
+    <a href="{% url 'detail' shoe.id %}">
+      <div class="card-content">
+        <span class="card-title">{{ shoe.designer }}</span>
+        <p>Style: {{ shoe.style }}</p>
+        <p>Description: {{ shoe.description }}</p>
+        {% if shoe.size == 8 %}
+          <p>Size: {{ shoe.size }}</p>
+        {% else %}
+          <p>Size: Out of Stock</p>
+        {% endif %}
+      </div>
+  </a>
+  </div>
+{% endfor %}
+
+{% endblock %}
